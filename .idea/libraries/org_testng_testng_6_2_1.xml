@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="org.testng:testng:6.2.1" type="repository">
+    <properties maven-id="org.testng:testng:6.2.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.2.1/testng-6.2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.12/jcommander-1.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.2.1/testng-6.2.1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.12/jcommander-1.12-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.6/snakeyaml-1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
