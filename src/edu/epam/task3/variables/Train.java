@@ -1,28 +1,28 @@
 package edu.epam.task3.variables;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Train {
+public class Train implements Serializable {
     private String destination;
     private int trainNumber;
     private String departureTime;
-    private int[] typesOfPalaces = new int[]{};
+    private int[] typesOfPalaces;
 
-    public Train(){
-    }
-
-    public Train(String destination, int trainNumber, String departureTime, int commonPlaces, int coupePlaces, int reservedSeatPlaces, int luxuryPlaces) {
+    public Train(String destination, String departureTime, int commonPlaces, int coupePlaces, int reservedSeatPlaces, int luxuryPlaces) {
+        IDGenerator idGenerator=new IDGenerator();
         if (!departureTime.matches("([0-9]|[0-2][0-3]|[0-1][1-9]):([0-5][0-9]|[0-9])")){
             throw new IllegalArgumentException("illegal time format");
         }
         this.destination = destination;
-        this.trainNumber = trainNumber;
+        this.trainNumber = idGenerator.createID();
         this.departureTime = departureTime;
         this.typesOfPalaces = new int[]{commonPlaces, coupePlaces, reservedSeatPlaces, luxuryPlaces};
     }
 
-    public Train(String destination, int trainNumber, String departureTime, int[] typesOfPalaces) {
+    public Train(String destination, String departureTime, int[] typesOfPalaces) {
+        IDGenerator idGenerator=new IDGenerator();
         if (!departureTime.matches("([0-9]|[0-2][0-3]|[0-1][1-9]):([0-5][0-9]|[0-9])")){
             throw new IllegalArgumentException("illegal time format");
         }
@@ -30,23 +30,9 @@ public class Train {
             throw new IllegalArgumentException("illegal types of places format");
         }
         this.destination = destination;
-        this.trainNumber = trainNumber;
+        this.trainNumber = idGenerator.createID();
         this.departureTime = departureTime;
         this.typesOfPalaces = typesOfPalaces;
-    }
-
-    public void keyboardInput() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Input train number: ");
-        setTrainNumber(in.nextInt());
-        System.out.print("Input destination: ");
-        setDestination(in.next());
-        System.out.print("Input departure time(HH:mm): ");
-        setDepartureTime(in.next());
-        System.out.print("Input count of places(Common, Coupe, Reserved, Luxury): ");
-        setTypesOfPalaces(in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt());
-        in.close();
-        System.out.print(toString());
     }
 
     public String getDestination() {
@@ -59,10 +45,6 @@ public class Train {
 
     public int getTrainNumber() {
         return trainNumber;
-    }
-
-    public void setTrainNumber(int trainNumber) {
-        this.trainNumber = trainNumber;
     }
 
     public String getDepartureTime() {

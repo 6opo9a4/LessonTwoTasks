@@ -1,13 +1,15 @@
 package edu.epam.task3.service;
 
-import edu.epam.task3.variables.LogisticСompany;
+import edu.epam.task3.variables.LogisticCompany;
 import edu.epam.task3.variables.Train;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class LogisticService {
 
-    public ArrayList<Train> sameDestinationTrains(String destinationPoint, LogisticСompany company){
+    public ArrayList<Train> sameDestinationTrains(String destinationPoint, LogisticCompany company){
         ArrayList<Train> trains = new ArrayList<>();
         for (Train train : company.getTrains()) {
             if(train.getDestination().equals(destinationPoint))
@@ -18,7 +20,18 @@ public class LogisticService {
         return trains;
     }
 
-    public ArrayList<Train> sameDestinationAndAfterTimeTrains(String destinationPoint, LogisticСompany company, String time){
+    public void setCompanyToFile(String filePath, LogisticCompany logisticCompany) {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath)))
+        {
+            oos.writeObject(logisticCompany.getTrains());
+        }
+        catch(Exception ex){
+
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public ArrayList<Train> sameDestinationAndAfterTimeTrains(String destinationPoint, LogisticCompany company, String time){
         if (!time.matches("([0-9]|[0-2][0-3]|[0-1][1-9]):([0-5][0-9]|[0-9])")){
             throw new IllegalArgumentException("illegal time format");
         }
@@ -32,7 +45,7 @@ public class LogisticService {
         return trains;
     }
 
-    public ArrayList<Train> sameDestinationAndWithPlacesTrains(String destinationPoint, LogisticСompany company){
+    public ArrayList<Train> sameDestinationAndWithPlacesTrains(String destinationPoint, LogisticCompany company){
         ArrayList<Train> trains = new ArrayList<>();
         for (Train train : company.getTrains()) {
             String destination = train.getDestination();
