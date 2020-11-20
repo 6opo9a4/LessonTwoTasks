@@ -61,6 +61,32 @@ public class LogisticCompany implements Serializable {
         }
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
+        LogisticCompany company = (LogisticCompany) o;
+        ArrayList<Train> trainsList = company.trains;
+        if(trains.size()!=trainsList.size()){
+            return false;
+        }
+        boolean result;
+        for(int i=0;i<trainsList.size();i++) {
+            Train firstTrain = trains.get(i);
+            Train secondTrain = trainsList.get(i);
+            result = firstTrain.equals(secondTrain);
+            if(result == false){
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         String forOut = "";

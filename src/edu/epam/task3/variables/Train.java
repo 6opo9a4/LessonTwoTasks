@@ -1,6 +1,7 @@
 package edu.epam.task3.variables;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -103,12 +104,6 @@ public class Train implements Serializable {
         return numberOfPlaces;
     }
 
-    @Override
-    public String toString() {
-        String forOut = String.format("Time: %s, destination - %s(№%s), count of places - %s", departureTime, destination,trainNumber,getNumberOfPlaces());
-        return forOut;
-    }
-
     public int getDepartureMinutes() {
         int minutes;
         String time = this.departureTime;
@@ -125,5 +120,28 @@ public class Train implements Serializable {
         hoursAndMinutes = time.split(":");
         hours = Integer.parseInt(hoursAndMinutes[0]);
         return hours;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
+        Train train = (Train) o;
+        if(train.getTrainNumber() == getTrainNumber()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String forOut = String.format("Time: %s, destination - %s(№%s), count of places - %s", departureTime, destination,trainNumber,getNumberOfPlaces());
+        return forOut;
     }
 }
