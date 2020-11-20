@@ -36,7 +36,5 @@ public class LogisticMain {
         logisticReport.trainsOut(belorussianRailway.getTrains());
         logisticService.shellSortID(belorussianRailway.getTrains());
         logisticReport.trainsOut(belorussianRailway.getTrains());
-
-
     }
 }
