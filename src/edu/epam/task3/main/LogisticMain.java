@@ -5,6 +5,7 @@ import edu.epam.task3.service.LogisticService;
 import edu.epam.task3.variables.LogisticCompany;
 import edu.epam.task3.variables.Train;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class LogisticMain {

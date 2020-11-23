@@ -80,7 +80,7 @@ public class LogisticCompany implements Serializable {
             Train firstTrain = trains.get(i);
             Train secondTrain = trainsList.get(i);
             result = firstTrain.equals(secondTrain);
-            if(result == false){
+            if(!result){
                 return false;
             }
         }
